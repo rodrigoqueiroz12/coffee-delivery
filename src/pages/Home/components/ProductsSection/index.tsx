@@ -1,19 +1,10 @@
-import { useEffect } from 'react'
 import { StyledContainer, StyledH2, StyledProductsContainer } from './styled'
 
 import Product from '../Product'
 
-import { getProducts } from '@/redux/slices/productSlice'
-import { useAppDispatch, useAppSelector } from '@/redux/hooks'
+import { products } from '@/data/products'
 
 export default function ProductsSection() {
-  const products = useAppSelector((state) => state.products.products)
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    dispatch(getProducts())
-  }, [dispatch])
-
   return (
     <section>
       <StyledContainer>

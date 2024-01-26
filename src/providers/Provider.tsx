@@ -1,4 +1,3 @@
-import ReduxProvider from './ReduxProvider'
 import RouterProvider from './RouterProvider'
 import ThemeProvider from './ThemeProvider'
 
@@ -8,12 +7,10 @@ interface ProviderProps {
 
 export default function Provider({ children }: ProviderProps) {
   return (
-    <ReduxProvider>
-      <ThemeProvider>
-        {children}
+    <ThemeProvider>
+      {children}
 
-        <RouterProvider />
-      </ThemeProvider>
-    </ReduxProvider>
+      <RouterProvider />
+    </ThemeProvider>
   )
 }
