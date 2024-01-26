@@ -1,25 +1,26 @@
 import { useEffect, useState } from 'react'
-
-import { api } from '@/api/axios'
-import { ProductType } from '@/@types/product'
-
 import { StyledContainer, StyledH2, StyledProductsContainer } from './styled'
 
 import Product from '../Product'
 
+import { Product as ProductT } from '@/@types/product'
+import { products as productsData } from '@/data/products'
+
 export default function ProductsSection() {
-  const [products, setProducts] = useState<ProductType[]>([])
+  const [products, setProducts] = useState<ProductT[]>([])
 
   useEffect(() => {
-    async function fetchProducts() {
-      const res = await api.get('products')
-
-      const data: ProductType[] = res.data
+    async function getProducts() {
+      const data: ProductT[] = await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(productsData)
+        }, 1500)
+      })
 
       setProducts(data)
     }
 
-    fetchProducts()
+    getProducts()
   }, [])
 
   return (
