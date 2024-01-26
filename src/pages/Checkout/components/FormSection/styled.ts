@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import { defaultTheme } from '../../../../styles/themes/default'
+import { defaultTheme } from '@/styles/themes/default'
 
 export const StyledSection = styled.section`
   display: flex;

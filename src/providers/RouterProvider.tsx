@@ -1,5 +1,5 @@
 import { RouterProvider as ReactRouterProvider } from 'react-router-dom'
-import { router } from '../Router'
+import { router } from '@/Router'
 
 export default function RouterProvider() {
   return <ReactRouterProvider router={router} />

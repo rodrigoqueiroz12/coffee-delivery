@@ -11,9 +11,9 @@ import {
   StyledTagsContainer,
   StyledTitle,
 } from './styled'
-import { ProductType } from '../../../../@types/product'
-import { format } from '../../../../lib/utils'
-import ProductCounter from '../../../../components/ProductCounter'
+import { ProductType } from '@/@types/product'
+import { format } from '@/lib/utils'
+import ProductCounter from '@/components/ProductCounter'
 
 interface ProductProps {
   product: ProductType

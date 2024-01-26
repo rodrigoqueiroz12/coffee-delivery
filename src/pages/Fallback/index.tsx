@@ -1,4 +1,5 @@
-import logo from '../../assets/logo.svg'
+import logo from '@/assets/logo.svg'
+
 import { StyledContainer, StyledImage } from './styled'
 
 export default function Fallback() {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { api } from '../../../../api/axios'
-import { ProductType } from '../../../../@types/product'
+import { api } from '@/api/axios'
+import { ProductType } from '@/@types/product'
 
 import { StyledContainer, StyledH2, StyledProductsContainer } from './styled'
 

@@ -1,6 +1,6 @@
 import { Clock, CurrencyDollar, MapPin } from '@phosphor-icons/react'
 
-import GuyPicture from '../../assets/guy.svg'
+import GuyPicture from '@/assets/guy.svg'
 
 import {
   StyledContainer,

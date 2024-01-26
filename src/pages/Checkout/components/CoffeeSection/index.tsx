@@ -10,7 +10,7 @@ import {
   StyledSection,
 } from './styled'
 import Product from '../Product'
-import Button from '../../../../components/Button'
+import Button from '@/components/Button'
 
 export default function CoffeeSection() {
   return (

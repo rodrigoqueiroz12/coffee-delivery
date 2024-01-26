@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
-import Container from '../../components/Container'
+
+import Container from '@/components/Container'
 
 export const StyledContainer = styled(Container)`
   height: calc(100vh - 108px);

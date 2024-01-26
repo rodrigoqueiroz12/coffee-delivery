@@ -1,6 +1,6 @@
 import { Trash } from '@phosphor-icons/react'
 
-import ProductCounter from '../../../../components/ProductCounter'
+import ProductCounter from '@/components/ProductCounter'
 
 import {
   StyledActions,

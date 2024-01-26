@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import Container from '../../components/Container'
-import { defaultTheme } from '../../styles/themes/default'
+
+import Container from '@/components/Container'
+import { defaultTheme } from '@/styles/themes/default'
 
 export const StyledContainer = styled(Container)`
   display: flex;

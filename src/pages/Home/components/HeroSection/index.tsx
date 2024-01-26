@@ -5,7 +5,7 @@ import {
   Timer,
 } from '@phosphor-icons/react'
 
-import CoffeeImage from '../../../../assets/coffee.svg'
+import CoffeeImage from '@/assets/coffee.svg'
 
 import {
   StyledContainer,

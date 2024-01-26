@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Container from '../../components/Container'
+import Container from '@/components/Container'
 
 export const StyledContainer = styled(Container)`
   height: 100dvh;

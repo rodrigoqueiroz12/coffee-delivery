@@ -14,7 +14,7 @@ import {
   StyledRadioGroupRoot,
   StyledSection,
 } from './styled'
-import TextInput from '../../../../components/TextInput'
+import TextInput from '@/components/TextInput'
 import Card from '../Card'
 
 export default function FormSection() {
