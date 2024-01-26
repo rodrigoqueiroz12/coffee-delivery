@@ -1,27 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { StyledContainer, StyledH2, StyledProductsContainer } from './styled'
 
 import Product from '../Product'
 
-import { Product as ProductT } from '@/@types/product'
-import { products as productsData } from '@/data/products'
+import { getProducts } from '@/redux/slices/productSlice'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 
 export default function ProductsSection() {
-  const [products, setProducts] = useState<ProductT[]>([])
+  const products = useAppSelector((state) => state.products.products)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    async function getProducts() {
-      const data: ProductT[] = await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(productsData)
-        }, 1500)
-      })
-
-      setProducts(data)
-    }
-
-    getProducts()
-  }, [])
+    dispatch(getProducts())
+  }, [dispatch])
 
   return (
     <section>
