@@ -1,10 +1,11 @@
 import { StyledContainer, StyledH2, StyledProductsContainer } from './styled'
 
 import Product from '../Product'
-
-import { products } from '@/data/products'
+import { useProducts } from '@/hooks/useProducts'
 
 export default function ProductsSection() {
+  const { products } = useProducts()
+
   return (
     <section>
       <StyledContainer>

@@ -1,3 +1,4 @@
+import { ProductsContextProvider } from '@/contexts/ProductsContext'
 import RouterProvider from './RouterProvider'
 import ThemeProvider from './ThemeProvider'
 
@@ -7,10 +8,12 @@ interface ProviderProps {
 
 export default function Provider({ children }: ProviderProps) {
   return (
-    <ThemeProvider>
-      {children}
+    <ProductsContextProvider>
+      <ThemeProvider>
+        {children}
 
-      <RouterProvider />
-    </ThemeProvider>
+        <RouterProvider />
+      </ThemeProvider>
+    </ProductsContextProvider>
   )
 }
