@@ -1,3 +1,9 @@
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+
+import Button from '@/components/Button'
+import { useCart } from '@/contexts/CartContext'
+
+import Product from '../Product'
 import {
   StyledCard,
   StyledPrice,
@@ -9,42 +15,60 @@ import {
   StyledProductsContainer,
   StyledSection,
 } from './styled'
-import Product from '../Product'
-import Button from '@/components/Button'
 
 export default function CoffeeSection() {
+  const [parent] = useAutoAnimate()
+
+  const { products } = useCart()
+
+  const totalItemsCost = products.reduce((acc, curr) => {
+    return (acc + curr.price / 100) * curr.quantity
+  }, 0)
+
   return (
     <StyledSection>
-      <h2>Cafés selecionados</h2>
+      <>
+        <h2>Cafés selecionados</h2>
 
-      <StyledCard>
-        <StyledProductsContainer>
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-        </StyledProductsContainer>
+        <StyledCard>
+          <StyledProductsContainer ref={parent}>
+            {products?.map((product, i) => (
+              <Product key={i} product={product} />
+            ))}
+          </StyledProductsContainer>
 
-        <StyledPriceContainer>
-          <StyledPrice>
-            <StyledPriceLabel>Total de itens</StyledPriceLabel>
-            <StyledPriceValue>R$ 10,00</StyledPriceValue>
-          </StyledPrice>
-          <StyledPrice>
-            <StyledPriceLabel>Entrega</StyledPriceLabel>
-            <StyledPriceValue>R$ 10,00</StyledPriceValue>
-          </StyledPrice>
-          <StyledPrice>
-            <StyledPriceLabelTotal>Total</StyledPriceLabelTotal>
-            <StyledPriceValueTotal>R$ 10,00</StyledPriceValueTotal>
-          </StyledPrice>
-        </StyledPriceContainer>
+          <StyledPriceContainer>
+            <StyledPrice>
+              <StyledPriceLabel>Total de itens</StyledPriceLabel>
+              <StyledPriceValue>
+                {totalItemsCost.toLocaleString('pt-br', {
+                  style: 'currency',
+                  currency: 'BRL',
+                  maximumFractionDigits: 2,
+                })}
+              </StyledPriceValue>
+            </StyledPrice>
+            <StyledPrice>
+              <StyledPriceLabel>Entrega</StyledPriceLabel>
+              <StyledPriceValue>R$ 10,00</StyledPriceValue>
+            </StyledPrice>
+            <StyledPrice>
+              <StyledPriceLabelTotal>Total</StyledPriceLabelTotal>
+              <StyledPriceValueTotal>
+                {(totalItemsCost + 10).toLocaleString('pt-br', {
+                  style: 'currency',
+                  currency: 'BRL',
+                  maximumFractionDigits: 2,
+                })}
+              </StyledPriceValueTotal>
+            </StyledPrice>
+          </StyledPriceContainer>
 
-        <Button>Confirmar pedido</Button>
-      </StyledCard>
+          <Button type="submit" form="address-form">
+            Confirmar pedido
+          </Button>
+        </StyledCard>
+      </>
     </StyledSection>
   )
 }

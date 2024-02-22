@@ -1,4 +1,5 @@
 import { Clock, CurrencyDollar, MapPin } from '@phosphor-icons/react'
+import { Navigate, useSearchParams } from 'react-router-dom'
 
 import GuyPicture from '@/assets/guy.svg'
 
@@ -14,7 +15,29 @@ import {
   StyledSection,
 } from './styled'
 
+type SuccessParams =
+  | {
+      postalCode: string
+      street: string
+      number: string
+      complement: string
+      neighborhood: string
+      city: string
+      state: string
+      paymentMethod: 'credit' | 'debit' | 'money'
+    }
+  | Record<string, never>
+
 export default function Success() {
+  const [searchParams] = useSearchParams()
+  const purchase: SuccessParams = JSON.parse(
+    searchParams.get('purchase') || '{}',
+  )
+
+  if (!purchase.paymentMethod) {
+    return <Navigate to="/" />
+  }
+
   return (
     <StyledContainer>
       <StyledSection>
@@ -30,9 +53,14 @@ export default function Success() {
                 </StyledIcon>
                 <StyledListItemContent>
                   <span>
-                    Entrega em <strong>Rua João Martinelli, 102</strong>
+                    Entrega em{' '}
+                    <strong>
+                      {purchase.street}, {purchase.number}
+                    </strong>
                   </span>
-                  <span>Farrapos - Porto Alegre, RS</span>
+                  <span>
+                    {purchase.neighborhood} - {purchase.city}, {purchase.state}
+                  </span>
                 </StyledListItemContent>
               </StyledListItem>
               <StyledListItem>
@@ -51,7 +79,17 @@ export default function Success() {
                 <StyledListItemContent>
                   <span>Pagamento na entrega</span>
                   <span>
-                    <strong>Cartão de crédito</strong>
+                    {purchase.paymentMethod === 'credit' && (
+                      <strong>Cartão de crédito</strong>
+                    )}
+
+                    {purchase.paymentMethod === 'debit' && (
+                      <strong>Cartão de débito</strong>
+                    )}
+
+                    {purchase.paymentMethod === 'money' && (
+                      <strong>Dinheiro</strong>
+                    )}
                   </span>
                 </StyledListItemContent>
               </StyledListItem>

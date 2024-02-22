@@ -9,6 +9,7 @@ export const StyledHeader = styled.header`
 export const StyledContainer = styled(Container)`
   padding: 2rem 0;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
 `

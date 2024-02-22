@@ -85,7 +85,29 @@ export const StyledPrice = styled.strong`
   }
 `
 
+export const StyledBuyButton = styled.button`
+  height: 2.375rem;
+  border: 0;
+  line-height: 0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background: ${(props) => props.theme.colors['purple-dark']};
+  color: ${(props) => props.theme.colors.white};
+
+  transition: background 150ms ease;
+
+  &:enabled:hover {
+    background: ${(props) => props.theme.colors.purple};
+  }
+
+  svg {
+    height: 1.375rem;
+    width: 1.375rem;
+  }
+`
+
 export const StyledCounter = styled.div`
+  width: fit-content;
   height: 2.375rem;
   margin-left: auto;
   display: flex;
@@ -121,26 +143,5 @@ export const StyledCounter = styled.div`
     color: ${(props) => props.theme.colors['base-title']};
     font-size: ${(props) => props.theme.font.sizes.text.md};
     line-height: ${(props) => props.theme.font.lineHeights.md};
-  }
-`
-
-export const StyledBuyButton = styled.button`
-  height: 2.375rem;
-  border: 0;
-  line-height: 0;
-  padding: 0.5rem;
-  border-radius: 6px;
-  background: ${(props) => props.theme.colors['purple-dark']};
-  color: ${(props) => props.theme.colors.white};
-
-  transition: background 150ms ease;
-
-  &:enabled:hover {
-    background: ${(props) => props.theme.colors.purple};
-  }
-
-  svg {
-    height: 1.375rem;
-    width: 1.375rem;
   }
 `

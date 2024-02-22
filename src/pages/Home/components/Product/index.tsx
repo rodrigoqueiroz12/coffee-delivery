@@ -1,8 +1,13 @@
-import { ShoppingCartSimple } from '@phosphor-icons/react'
+import { Minus, Plus, ShoppingCartSimple } from '@phosphor-icons/react'
+import { useNavigate } from 'react-router-dom'
+
+import type { Product } from '@/@types/product'
+import { useCart } from '@/contexts/CartContext'
 
 import {
   StyledActionsContainer,
   StyledBuyButton,
+  StyledCounter,
   StyledDescription,
   StyledPrice,
   StyledProduct,
@@ -11,16 +16,30 @@ import {
   StyledTagsContainer,
   StyledTitle,
 } from './styled'
-import { ProductType } from '@/@types/product'
-import { format } from '@/lib/utils'
-import ProductCounter from '@/components/ProductCounter'
 
 interface ProductProps {
-  product: ProductType
+  product: Product
 }
 
 export default function Product({ product }: ProductProps) {
-  const formattedPrice = format(product.price / 100)
+  const navigate = useNavigate()
+  const { products, addNewProduct, removeOneProduct } = useCart()
+
+  const inCart = products.find(
+    (productToFind) => productToFind.id === product.id,
+  )?.quantity
+
+  function handleNavigateCart() {
+    navigate('/checkout')
+  }
+
+  function handleAddProduct() {
+    addNewProduct(product)
+  }
+
+  function handleRemoveOneProduct() {
+    removeOneProduct(product.id)
+  }
 
   return (
     <StyledProduct>
@@ -38,12 +57,32 @@ export default function Product({ product }: ProductProps) {
 
       <StyledActionsContainer>
         <StyledPrice>
-          R$ <span>{formattedPrice}</span>
+          R${' '}
+          <span>
+            {(product.price / 100).toLocaleString('pt-br', {
+              currency: 'BRL',
+            })}
+          </span>
         </StyledPrice>
 
-        <ProductCounter />
+        <StyledCounter>
+          <button
+            type="button"
+            onClick={handleRemoveOneProduct}
+            disabled={!inCart || inCart <= 0}
+          >
+            <Minus weight="bold" />
+          </button>
+          <span>{inCart || 0}</span>
+          <button type="button" onClick={handleAddProduct}>
+            <Plus weight="bold" />
+          </button>
+        </StyledCounter>
 
-        <StyledBuyButton>
+        <StyledBuyButton
+          disabled={!inCart || inCart <= 0}
+          onClick={handleNavigateCart}
+        >
           <ShoppingCartSimple weight="fill" />
         </StyledBuyButton>
       </StyledActionsContainer>

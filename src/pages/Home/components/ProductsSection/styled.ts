@@ -31,14 +31,4 @@ export const StyledProductsContainer = styled.div`
   grid-template-columns: repeat(auto-fill, 256px);
   justify-content: center;
   gap: 2rem;
-
-  @media screen and (min-width: 1120px) {
-    &:has(> div:hover) > div:not(:hover) {
-      opacity: 0.8;
-    }
-
-    > div:hover {
-      scale: 1.025;
-    }
-  }
 `

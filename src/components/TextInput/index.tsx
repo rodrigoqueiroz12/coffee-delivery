@@ -1,20 +1,23 @@
+import { ComponentProps, forwardRef } from 'react'
+
 import { StyledInput, StyledInputContainer } from './styled'
 
-interface TextInputProps
-  extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
+interface TextInputProps extends ComponentProps<'input'> {
   $optional?: boolean
 }
 
-export default function TextInput({
-  $optional = false,
-  ...props
-}: TextInputProps) {
-  return (
-    <StyledInputContainer $optional={$optional}>
-      <StyledInput {...props} />
-    </StyledInputContainer>
-  )
-}
+type Ref = HTMLInputElement
+
+const TextInput = forwardRef<Ref, TextInputProps>(
+  ({ $optional = false, ...props }, ref) => {
+    return (
+      <StyledInputContainer $optional={$optional}>
+        <StyledInput {...props} ref={ref} />
+      </StyledInputContainer>
+    )
+  },
+)
+
+TextInput.displayName = 'TextInput'
+
+export default TextInput

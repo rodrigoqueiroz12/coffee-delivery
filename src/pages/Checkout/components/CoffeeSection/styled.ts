@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import Card from '../Card'
 
 export const StyledSection = styled.section`
@@ -39,6 +40,15 @@ export const StyledCard = styled(Card)`
 
   width: min(100%, 40rem);
   margin-inline: auto;
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.purple};
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 `
 
 export const StyledPriceContainer = styled.div`

@@ -1,14 +1,13 @@
 import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 
-import App from '@/layouts/App'
-import Home from '@/pages/Home'
 import Fallback from '@/pages/Fallback'
+import Home from '@/pages/Home'
 import NotFound from '@/pages/NotFound'
 
-// eslint-disable-next-line react-refresh/only-export-components
+import App from './pages/_layouts/app'
+
 const Checkout = React.lazy(() => import('@/pages/Checkout'))
-// eslint-disable-next-line react-refresh/only-export-components
 const Success = React.lazy(() => import('@/pages/Success'))
 
 export const router = createBrowserRouter([
