@@ -1,30 +1,45 @@
-# React + TypeScript + Vite
+# Coffee Delivery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of contents
 
-Currently, two official plugins are available:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+### The challenge
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Users should be able to:
 
-- Configure the top-level `parserOptions` property like this:
+- Choose and Buy coffees!.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Screenshot
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![](./.github/preview.png)
+
+## My process
+
+### Built with
+
+- [TypeScript](https://www.typescriptlang.org/) - Typed programming language that builds on JavaScript
+- [React.js](https://react.dev/) - JavaScript Library
+- [Styled Components](https://tailwindcss.com/) - CSS Mobile-First Framework
+- [Radix UI](https://www.radix-vue.com/) - Unstyled, accessible components for building high‑quality web apps in Vue.
+- [Sonner](sonner.emilkowal.ski) - Library for building high‑quality toast components.
+- [React Hook Form](https://react-hook-form.com/) - Intuitive, performant, flexible and extensible forms with easy-to-use validation.
+- [Zod](https://zod.dev/) - TypeScript-first schema validation with static type inference.
+
+### Useful resources
+
+- [Radix UI](https://www.radix-ui.com/) - This is an amazing component library which helped me create accessible components. I'd recommend it to anyone still use this library.
+- [Sooner](https://sonner.emilkowal.ski/) - This is an amazing component library which helped me create easy to customize toasts. I'd recommend it to anyone still use this library.
+
+## Author
+
+- GitHub - [@rodrigoqueiroz12](https://github.com/rodrigoqueiroz12)
+- LinkedIn - [@rodrigoqueiroz](www.linkedin.com/in/rodrigo-queiroz-a113a9212)
