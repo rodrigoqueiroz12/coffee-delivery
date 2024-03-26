@@ -28,8 +28,8 @@ Users should be able to:
 
 - [TypeScript](https://www.typescriptlang.org/) - Typed programming language that builds on JavaScript
 - [React.js](https://react.dev/) - JavaScript Library
-- [Styled Components](https://tailwindcss.com/) - CSS Mobile-First Framework
-- [Radix UI](https://www.radix-vue.com/) - Unstyled, accessible components for building high‑quality web apps in Vue.
+- [Styled Components](https://styled-components.com/) - CSS Mobile-First Framework
+- [Radix UI](https://www.radix-ui.com/) - Unstyled, accessible components for building high‑quality web apps in React.
 - [Sonner](sonner.emilkowal.ski) - Library for building high‑quality toast components.
 - [React Hook Form](https://react-hook-form.com/) - Intuitive, performant, flexible and extensible forms with easy-to-use validation.
 - [Zod](https://zod.dev/) - TypeScript-first schema validation with static type inference.
